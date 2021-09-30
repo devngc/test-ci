@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 14.17
       - name: install semantic-release
-        run: npm install @semantic-release/exec
+        run: npm install @semantic-release
       - name: run semantic release
         run: npx semantic-release
         env:
