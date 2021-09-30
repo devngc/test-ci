@@ -1,7 +1,8 @@
 name: Hello Actions!
 
 on:
-  push: []
+  push:
+    branches: [master, test]
   pull_request:
     branches: [master]
 
