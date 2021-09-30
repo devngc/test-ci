@@ -1,15 +1,11 @@
 ---
 name: CI
 
-on:
-  push:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+on: [push, pull_request]
 
 jobs:
-  unit_tests:
+  test:
+    name: Unit Tests
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,10 +27,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy_to_github:
+  deploy:
+    name: Deploy to Github
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    needs: unit_tests
+    needs: test
     steps:
       - uses: actions/checkout@v2
       - name: set up node # we need node for for semantic release
