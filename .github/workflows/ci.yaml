@@ -37,6 +37,7 @@ jobs:
   deploy:
     name: Deploy to GitHub
     runs-on: ubuntu-latest
+    if: github.event_name == "pull_request"
     needs: test
     steps:
       - uses: actions/checkout@v2
