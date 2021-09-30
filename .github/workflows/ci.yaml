@@ -6,10 +6,10 @@ on:
   pull_request:
     branches:
       - master
+    types: [closed]
 
 jobs:
-  test:
-    name: Unit tests
+  unit_tests:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,11 +31,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy:
-    name: Deploy to GitHub
+  deploy_to_github:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
-    needs: test
+    needs: unit_tests
     steps:
       - uses: actions/checkout@v2
       - name: set up node # we need node for for semantic release
