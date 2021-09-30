@@ -11,11 +11,11 @@ on:
 jobs:
   test:
     name: Unit tests
-    strategy:
-      matrix:
-        os: [windows-latest]
+    # strategy:
+    #   matrix:
+    #     os: [windows-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - name: set up Python
