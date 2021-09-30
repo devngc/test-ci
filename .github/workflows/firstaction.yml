@@ -3,7 +3,9 @@ name: Hello Actions!
 on:
   push:
   pull_request:
-    branches: [master]
+    branches:
+      - master
+    types: [closed]
 
 env:
   name: Devang C
