@@ -11,10 +11,6 @@ on:
 jobs:
   test:
     name: Unit tests
-    # strategy:
-    #   matrix:
-    #     os: [windows-latest]
-
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
