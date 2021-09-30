@@ -7,12 +7,12 @@ on:
     branches: [master]
 
 env:
-  - name: Devang C
+  name: Devang C
 jobs:
   push_only:
     runs-on: ubuntu-latest
     env:
-      - name: Devang
+      name: Devang
     steps:
       - name: Run a one-line script
         run: echo Hello, $name!
